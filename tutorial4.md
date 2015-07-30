@@ -53,6 +53,7 @@ if (!success) {
     fprintf(stderr, "Error compiling shader type %d:'%s'\n", ShaderType, InfoLog);
 }
 ```
+
 很多时候，你会遇到一些编译错误。上面的代码能获得编译状态并且显示编译器遇到的错误。  
 
 ``` 
@@ -91,7 +92,7 @@ glUseProgram(ShaderProgram);
 我们已经介绍了 OpenGL 中与 Shader 程序管理相关的函数，本教程中剩下的就是与顶点着色器和片元着色器相关的内容了（包含在“pVS”和“pFS”变量中）。  
 
 ```
-#version 330
+ #version 330
 ```
 
 这告诉编译器我们的 Shader 程序是针对3.3版本的 GLSL，如果编译器不支持这个版本则会报错。
