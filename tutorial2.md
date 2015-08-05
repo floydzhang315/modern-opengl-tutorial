@@ -1,6 +1,6 @@
-# OpenGL教程翻译  第二课 Hello Dot!
+# 第二课 绘制一个点
 
-##Background
+##背景
 
 这将是我们第一次遇到 GLEW，GLEW 是OpenGL的扩展功能库。它能帮助你解决OpenGL不断扩展的问题。一旦你初始化它之后，它在你的系统上将查询所有可用的扩展功能，自动的加载它们并且通过一个单一的头文件提供简单的接口。
 
@@ -12,7 +12,8 @@ Installing GLEW: GLEW从服务器 [http://glew.sourceforge.net/](http://glew.sou
 
 ##Sourcewalkthrough
 
-```#include<GL/glew.h>
+```
+\#include<GL/glew.h>
 ```
 
 这里我们包含了一个单一的 GLEW 头文件。如果你包含其他 OpenGL 头文件，你必须把 GLEW 头文件放在其他头文件之前。  
@@ -37,7 +38,7 @@ Vector3fVertices[1];
 Vertices[0] =Vector3f(0.0f, 0.0f, 0.0f);
 ```
 
-我们创建了一个类型为Vector3f（这个类型被定义在 math_3d.h）的数组，同时初始化 X、Y、Z为0.这将会使我们绘制的点出现在屏幕中间。  
+我们创建了一个类型为 Vector3f（这个类型被定义在 math_3d.h）的数组，同时初始化 X、Y、Z为0.这将会使我们绘制的点出现在屏幕中间。  
 
 ```
 GLuint VBO;
@@ -49,7 +50,7 @@ GLuint VBO;
 glGenBuffers(1,&VBO);
 ```
 
-OpenGL为了生成不同类型的对象定义几个 glGen* 函数。这些函数通常有两个参数，第一个参数指定你想要创建对象的数量，第二个参数是一个存放GLuint类型数组的地址，这个数组用于存放函数生成的句柄（确定数组是足够大来存放你的所申请的缓冲区句柄）。以后调用这个函数将不会生成相同的句柄，除非你使用 glDeleteBuffers 函数删除它。在这个地方，你不需要指定用这些 buffers 用于做什么，所以创建的是普通的 buffers，指定这个 buffer 的功能是下面一个函数的任务  
+OpenGL为了生成不同类型的对象定义几个 glGen* 函数。这些函数通常有两个参数，第一个参数指定你想要创建对象的数量，第二个参数是一个存放 GLuint 类型数组的地址，这个数组用于存放函数生成的句柄（确定数组是足够大来存放你的所申请的缓冲区句柄）。以后调用这个函数将不会生成相同的句柄，除非你使用 glDeleteBuffers 函数删除它。在这个地方，你不需要指定用这些 buffers 用于做什么，所以创建的是普通的 buffers，指定这个 buffer 的功能是下面一个函数的任务  
 
 ```
 glBindBuffer(GL_ARRAY_BUFFER,VBO);
@@ -99,7 +100,7 @@ glDisableVertexAttribArray(0);
 
 当顶点不是要立即被使用的时候，禁用所有的顶点属性是一个很不错的方法。当着色器不使用顶点的时候将顶点属性激活，这是给自己自找麻烦。  
 
-##Operation Resuls
+##操作结果
 
-![](![](images/picture02.jpg)
+![](images/picture02.jpg)
 
